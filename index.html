@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Assistente Carlos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Assistente Carlos</h1>
+      <p class="subtitle">Conectado à OpenAI — estilo ChatGPT</p>
+    </header>
+
+    <main id="chat">
+      <!-- mensagens aparecerão aqui -->
+    </main>
+
+    <form id="inputForm">
+      <textarea id="userInput" placeholder="Escreva sua mensagem..." rows="2"></textarea>
+      <div class="controls">
+        <select id="modelSelect">
+          <option value="gpt-4o-mini">gpt-4o-mini</option>
+          <option value="gpt-4o">gpt-4o</option>
+        </select>
+        <button type="submit" id="sendBtn">Enviar</button>
+      </div>
+    </form>
+
+    <footer>
+      <small>Cole sua chave da OpenAI no arquivo <code>script.js</code> em <code>OPENAI_API_KEY</code>.</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
