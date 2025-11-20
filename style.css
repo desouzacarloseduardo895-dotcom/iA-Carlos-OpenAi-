@@ -1,22 +1,173 @@
-:root{
-  --bg:#0f1724;
-  --card:#0b1220;
-  --accent:#06b6d4;
-  --text:#e6eef8;
+:root {
+  --bg: #0f1724;
+  --card: #0b1220;
+  --accent: #06b6d4;
+  --text: #e6eef8;
 }
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,#071224,var(--bg));color:var(--text)}
-.container{max-width:760px;margin:28px auto;padding:18px;border-radius:12px;background:rgba(255,255,255,0.02);box-shadow:0 8px 30px rgba(2,6,23,0.6)}
-header h1{margin:0;font-size:20px}
-.subtitle{margin:4px 0 12px;color:#a8b6c5}
-main#chat{min-height:320px;max-height:60vh;overflow:auto;padding:12px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border-radius:8px}
-.msg{padding:10px 12px;margin:8px 0;border-radius:10px;line-height:1.4;max-width:86%}
-.msg.user{margin-left:auto;background:linear-gradient(90deg,rgba(6,182,212,0.12),rgba(6,182,212,0.06));border:1px solid rgba(6,182,212,0.14)}
-.msg.bot{margin-right:auto;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
-form#inputForm{display:flex;flex-direction:column;margin-top:12px;gap:8px}
-#userInput{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);resize:vertical}
-.controls{display:flex;gap:8px;align-items:center}
-#modelSelect{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
-#sendBtn{padding:10px 14px;border-radius:8px;border:none;background:var(--accent);color:#002;cursor:pointer}
-footer{margin-top:10px;color:#98a8b7;font-size:12px}
-code{background:#051220;padding:2px 6px;border-radius:4px;font-size:12px}
+
+/* Reset e base */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, Arial;
+  background: linear-gradient(180deg, #071224, var(--bg));
+  color: var(--text);
+}
+
+/* Container principal */
+.container {
+  max-width: 760px;
+  margin: 28px auto;
+  padding: 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+}
+
+/* Cabeçalho */
+header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+.subtitle {
+  margin: 4px 0 12px;
+  color: #a8b6c5;
+}
+
+/* Perfil circular da IA */
+.profile {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+}
+
+.avatar:hover {
+  transform: scale(3.05);
+}
+
+/* Área de chat */
+main#chat {
+  min-height: 320px;
+  max-height: 60vh;
+  overflow: auto;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
+  border-radius: 8px;
+}
+
+/* Bolhas de mensagens */
+.msg {
+  padding: 10px 12px;
+  margin: 8px 0;
+  border-radius: 10px;
+  line-height: 1.4;
+  max-width: 86%;
+}
+
+.msg.user {
+  margin-left: auto;
+  background: linear-gradient(90deg, rgba(6, 182, 212, 0.12), rgba(6, 182, 212, 0.06));
+  border: 1px solid rgba(6, 182, 212, 0.14);
+}
+
+.msg.bot {
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Formulário */
+form#inputForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  gap: 8px;
+}
+
+#userInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: transparent;
+  color: var(--text);
+  resize: vertical;
+}
+
+/* Controles (select e botões) */
+.controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#modelSelect {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: transparent;
+  color: var(--text);
+}
+
+#sendBtn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: #002;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+#sendBtn:hover {
+  background: #07c9e9;
+}
+
+#callBtn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#callBtn:hover {
+  background: rgba(6, 182, 212, 0.2);
+}
+
+/* Rodapé */
+footer {
+  margin-top: 10px;
+  color: #98a8b7;
+  font-size: 12px;
+  text-align: center;
+}
+
+code {
+  background: #051220;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
